@@ -29,8 +29,7 @@
 
                     <!-- Branding Image -->
                     <a href="{{ url('/') }}">
-                        <img style="width: 40%;" alt="logo" src="https://www.google.com/a/devmob.com/images/logo.gif?alpha=1&service=google_default">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
+                        <img style="width: 40%;" alt="logo" src="{{ asset('img/logo.png') }}">
                     </a>
                 </div>
 
