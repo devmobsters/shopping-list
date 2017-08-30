@@ -1,4 +1,5 @@
 # Grocery store
+Grocery management for DevMob.
 A project by Xander Zegers.
 
 ## Install
