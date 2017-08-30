@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/standard.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a href="{{ url('/') }}">
-                        <img style="width: 40%;" alt="logo" src="{{ asset('img/logo.png') }}">
+                        <img class="logo" alt="logo" src="{{ asset('img/logo.png') }}">
                     </a>
                 </div>
 
