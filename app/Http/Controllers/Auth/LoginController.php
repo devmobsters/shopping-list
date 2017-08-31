@@ -43,7 +43,7 @@ class LoginController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function logout(Request $request): Response
+    public function logout(Request $request)
     {
         $this->guard()->logout();
 
