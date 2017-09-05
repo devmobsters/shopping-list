@@ -52,4 +52,17 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+        $credentials = array_merge($this->credentials($request), ['active' => true]);
+        return $this->guard()->attempt(
+            $credentials, $request->has('remember')
+        );
+    }
 }
