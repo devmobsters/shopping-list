@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'email_token' => base64_encode($data['email'])
+            'email_token' => str_random(32)
         ]);
     }
 
@@ -97,9 +97,15 @@ class RegisterController extends Controller
      */
     public function verify($token)
     {
-        $user = User::where('email_token',$token)->first();
-        $user->active = 1;
-        if($user->save()){
+        $user = User::where('email_token', $token)->first();
+
+        if (! $user) {
+            return view('email.verificationfailed');
+        }
+
+        $user->active = true;
+        $user->email_token = null;
+        if ($user->save()){
             return view('email.emailconfirm',['user'=>$user]);
         }
     }
