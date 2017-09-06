@@ -90,12 +90,10 @@ class RegisterController extends Controller
     }
 
     /**
-     * Handle a registration request for the application.
-     *
-     * @param $token
+     * @param string $token
      * @return \Illuminate\Http\Response
      */
-    public function verify($token)
+    public function verify(string $token)
     {
         $user = User::where('email_token', $token)->first();
 
