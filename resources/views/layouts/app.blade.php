@@ -29,15 +29,19 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a href="{{ url('/') }}">
-                        <img class="logo" alt="logo" src="{{ asset('img/logo.png') }}">
-                    </a>
+                    <div class="">
+                        <a href="{{ url('/home') }}">
+                            <img class="logo img-responsive" alt="logo" src="{{ asset('img/logo.png') }}">
+                        </a>
+                    </div>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="#" class="active">Catalog</a></li>
+                        <li><a href="#" class="active">Add Product</a></li>
+                        <li><a href="{{ url('/home') }}" class="active">Order Overview</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -49,10 +53,13 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li href="#">
+                                        <a>Select Language</a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
