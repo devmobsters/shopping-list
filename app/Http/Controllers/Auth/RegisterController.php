@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\Jobs\SendVerificationEmail;
 
 class RegisterController extends Controller
 {
@@ -50,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => ['required','string','email','max:255','unique:users','regex:/(^[a-zA-Z0-9_\-\.\+]+@devmob\.com)/'],
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -68,6 +71,40 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'email_token' => str_random(32)
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        dispatch(new SendVerificationEmail($user));
+        return view('email.verification');
+    }
+
+    /**
+     * @param string $token
+     * @return \Illuminate\Http\Response
+     */
+    public function verify(string $token)
+    {
+        $user = User::where('email_token', $token)->first();
+
+        if (! $user) {
+            return view('email.verificationfailed');
+        }
+
+        $user->active = true;
+        $user->email_token = null;
+        if ($user->save()){
+            return view('email.emailconfirm',['user'=>$user]);
+        }
     }
 }
