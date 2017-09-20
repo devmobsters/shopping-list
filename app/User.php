@@ -27,4 +27,12 @@ class User extends Authenticatable
         'password', 'remember_token', 'active',
     ];
 
+    public function product() {
+        return $this->belongsToMany(product::class);
+    }
+
+    public function fullName()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
 }

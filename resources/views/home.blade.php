@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Order Overview</div>
+                <div class="panel-heading">Catalog</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -13,8 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <table>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>
+                                    {{$product->name}}
+                                </td>
+                                <td>
+                                    {{ $product->user->fullName() }}
+                                </td>
+                            </tr>
+                        @endforeach
 
-                    You are logged in!
+                    </table>
                 </div>
             </div>
         </div>

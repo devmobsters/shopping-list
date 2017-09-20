@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Product;
+use Illuminate\Support\Facades\Auth;
+
+class ProductController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $products = Product::all();
+
+        return view('home')->with([
+            'products' => $products,
+        ]);
+    }
+
+    public function create()
+    {
+        return view('addproduct');
+    }
+
+    public function store(){
+        $product = new Product;
+        $product->name = request('productname');
+        $product->brand = 'productbrand';
+        $product->picture = 'producturl';
+        $product->added_by = Auth::user()->id;
+        $product->save();
+        return redirect('home');
+    }
+}
