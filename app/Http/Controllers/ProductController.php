@@ -38,9 +38,9 @@ class ProductController extends Controller
 
     public function store(){
         $product = new Product;
-        $product->name = request('productname');
-        $product->brand = request('productbrand');
-        $product->picture = request('productpictureurl');
+        $product->name = request('productName');
+        $product->brand = request('productBrand');
+        $product->picture = request('productPictureUrl');
         $product->added_by = Auth::user()->id;
         $product->save();
         return redirect('home');

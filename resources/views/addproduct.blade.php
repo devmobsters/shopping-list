@@ -11,43 +11,43 @@
                         <form class="form-horizontal" method="POST" action="/products/index">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('productname') ? ' has-error' : '' }}">
-                                <label for="productname" class="col-md-4 control-label">Product Name</label>
+                            <div class="form-group{{ $errors->has('productName') ? ' has-error' : '' }}">
+                                <label for="productName" class="col-md-4 control-label">Product Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="productname" class="form-control" name="productname" required autofocus>
+                                    <input id="productName" class="form-control" name="productName" required autofocus>
 
-                                    @if ($errors->has('productname'))
+                                    @if ($errors->has('productName'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('productname') }}</strong>
+                                        <strong>{{ $errors->first('productName') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('productbrand') ? ' has-error' : '' }}">
-                                <label for="productbrand" class="col-md-4 control-label">Brand</label>
+                            <div class="form-group{{ $errors->has('productBrand') ? ' has-error' : '' }}">
+                                <label for="productBrand" class="col-md-4 control-label">Brand</label>
 
                                 <div class="col-md-6">
-                                    <input id="productbrand" class="form-control" name="productbrand" autofocus>
+                                    <input id="productBrand" class="form-control" name="productBrand" autofocus>
 
-                                    @if ($errors->has('productbrand'))
+                                    @if ($errors->has('productBrand'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('productbrand') }}</strong>
+                                        <strong>{{ $errors->first('productBrand') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('productpictureurl') ? ' has-error' : '' }}">
-                                <label for="productpictureurl" class="col-md-4 control-label">Picture Link</label>
+                            <div class="form-group{{ $errors->has('productPictureUrl') ? ' has-error' : '' }}">
+                                <label for="productPictureUrl" class="col-md-4 control-label">Picture Link</label>
 
                                 <div class="col-md-6">
-                                    <input id="productpictureurl" class="form-control" name="productpictureurl" autofocus>
+                                    <input id="productPictureUrl" class="form-control" name="productPictureUrl" autofocus>
 
-                                    @if ($errors->has('productpictureurl'))
+                                    @if ($errors->has('productPictureUrl'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('productpictureurl') }}</strong>
+                                        <strong>{{ $errors->first('productPictureUrl') }}</strong>
                                     </span>
                                     @endif
                                 </div>
