@@ -13,11 +13,35 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <table>
+                    <table class="products table">
+                        <tr>
+                            <td>
+                                <strong>Thumbnail</strong>
+                            </td>
+                            <td>
+                                <strong>Product</strong>
+                            </td>
+                            <td>
+                                <strong>Brand</strong>
+                            </td>
+                            <td>
+                                <strong>Added By</strong>
+                            </td>
+                        </tr>
                         @foreach ($products as $product)
                             <tr>
                                 <td>
-                                    {{$product->name}}
+                                    @if (! is_null( $product->picture ))
+                                        <a href="{{ $product->picture }}" target="_blank">
+                                            <img src="{{ $product->picture }}" class="img-thumbnail">
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ $product->name }}
+                                </td>
+                                <td>
+                                    {{ $product->brand }}
                                 </td>
                                 <td>
                                     {{ $product->user->fullName() }}

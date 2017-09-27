@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('brand')->nullable();
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->integer('added_by');
             $table->timestamps();
         });
