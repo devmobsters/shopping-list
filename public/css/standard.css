@@ -3,6 +3,6 @@
     margin-left: 10px;
 }
 
-table.products img.img-thumbnail {
+.products .img-thumbnail {
     width: 48px;
 }
