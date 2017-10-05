@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token', 'active',
     ];
 
-    public function product() {
+    public function product()
+    {
         return $this->belongsToMany(product::class);
     }
 
