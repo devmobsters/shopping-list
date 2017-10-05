@@ -39,9 +39,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="#" class="active">Catalog</a></li>
-                        <li><a href="#" class="active">Add Product</a></li>
-                        <li><a href="{{ url('/home') }}" class="active">Order Overview</a></li>
+                        <li><a href="{{ url('/home') }}" class="active">Catalog</a></li>
+                        <li><a href="{{ url('/products/create') }}" class="active">Add Product</a></li>
+                        <li><a href="#" class="active">Order Overview</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

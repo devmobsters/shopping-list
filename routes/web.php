@@ -13,6 +13,13 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect()->route('products.index');
+})->name('home');
+
+Route::get('/products', 'ProductController@index')->name('products.index');
+Route::get('/products/create', 'ProductController@create');
+Route::post('products', 'ProductController@store');
 
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+
