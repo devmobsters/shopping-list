@@ -20,9 +20,8 @@ Route::get('/home', function () {
 Route::get('/products', 'ProductController@index')->name('products.index');
 Route::get('/products/create', 'ProductController@create');
 Route::post('products', 'ProductController@store');
-Route::delete('products', 'ProductController@delete');
 Route::get('/products/edit/{id}', 'ProductController@edit');
-Route::post('/products/edit/{id}', 'ProductController@update');
+Route::patch('/products/edit/{id}', 'ProductController@update');
 
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 

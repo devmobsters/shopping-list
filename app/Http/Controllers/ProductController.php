@@ -55,11 +55,6 @@ class ProductController extends Controller
         return redirect('home');
     }
 
-    public function delete()
-    {
-
-    }
-
     public function edit($id)
     {
         $product = Product::findOrFail($id);
@@ -76,7 +71,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $this->validate($request, [
-            'name' => "required|unique:products,name,{$id},|string",
+            'name' => "required|unique:products,name,{$id}|string",
             'brand' => 'nullable|string',
             'picture' => 'nullable|active_url',
         ]);

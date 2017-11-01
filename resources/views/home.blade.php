@@ -25,9 +25,6 @@
                             <th class="table-brand">
                                 <strong>Brand</strong>
                             </th>
-                            <th hidden>
-                                <strong>Added By</strong>
-                            </th>
                             <th class="table-buttons"></th>
                         </tr>
                         @foreach ($products as $product)
@@ -50,9 +47,6 @@
                                     </td>
                                     <td>
                                         <p class="table-child">{{ $product->brand }}</p>
-                                    </td>
-                                    <td hidden>
-                                        {{ $product->user->fullName() }}
                                     </td>
                                     <td>
                                         <div class="table-child-vertical table-buttons">

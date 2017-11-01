@@ -8,7 +8,7 @@
                     <div class="panel-heading">Add Product</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/products/edit">
+                        <form class="form-horizontal" method="POST" action="/products">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

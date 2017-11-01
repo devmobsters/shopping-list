@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="/products/edit/{{ $id }}">
-                            {{--<input type="hidden" name="_method" value="PATCH">--}}
+                            <input type="hidden" name="_method" value="PATCH">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
