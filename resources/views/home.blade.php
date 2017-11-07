@@ -15,38 +15,57 @@
                     @endif
                     <table class="products table">
                         <tr>
-                            <td>
+                            <th></th>
+                            <th>
                                 <strong>Thumbnail</strong>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <strong>Product</strong>
-                            </td>
-                            <td>
+                            </th>
+                            <th class="table-brand">
                                 <strong>Brand</strong>
-                            </td>
-                            <td>
-                                <strong>Added By</strong>
-                            </td>
+                            </th>
+                            <th class="table-buttons"></th>
                         </tr>
                         @foreach ($products as $product)
-                            <tr>
-                                <td>
-                                    @if (! is_null( $product->picture ))
-                                        <a href="{{ $product->picture }}" target="_blank">
-                                            <img src="{{ $product->picture }}" class="img-thumbnail">
-                                        </a>
-                                    @endif
-                                </td>
-                                <td>
-                                    {{ $product->name }}
-                                </td>
-                                <td>
-                                    {{ $product->brand }}
-                                </td>
-                                <td>
-                                    {{ $product->user->fullName() }}
-                                </td>
-                            </tr>
+                            <form name="{{ $product->id  }}">
+                                <tr class="table-parent">
+                                    <td class="table-number">
+                                        <input type="number" class="form-control-static number-input table-child" min="0">
+                                    </td>
+                                    <td class="table-thumbnail">
+                                        <div class="table-child-vertical">
+                                            @if (! is_null( $product->picture ))
+                                                <a href="{{ $product->picture }}" target="_blank">
+                                                    <img src="{{ $product->picture }}" class="img-thumbnail">
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="table-child">{{ $product->name }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="table-child">{{ $product->brand }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="table-child-vertical table-buttons">
+                                            <div class="inline-div">
+                                                <a href="{{ url('/products/edit/' . $product->id) }}" class="btn button-color">
+                                                    Edit
+                                                </a>
+                                            </div>
+                                            <div class="inline-div">
+                                            </div>
+                                            <div class="inline-div">
+                                                <a href="#" class="btn button-color">
+                                                    Save
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
 
                     </table>

@@ -3,6 +3,58 @@
     margin-left: 10px;
 }
 
-.products .img-thumbnail {
+.table-parent td {
+    position: relative;
+    height: 64px;
+}
+
+.table-child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.table-child-vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.table-number {
+    width: 70px;
+}
+
+.number-input {
     width: 48px;
+}
+
+.table-thumbnail {
+    width: 88px;
+    height: 64px;
+}
+
+.products .img-thumbnail {
+    max-width: 48px;
+}
+
+.products .img-thumbnail:hover {
+    z-index: 2;
+    width: 200%;
+}
+
+.table-brand {
+    width: 70px;
+}
+
+.table-buttons {
+    width: 190px;
+}
+
+.button-color {
+    background-color: #f5f8fa;
+}
+
+.inline-div {
+    display: inline;
 }
